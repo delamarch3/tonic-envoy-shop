@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package users;
+
+import "google/api/annotations.proto";
+
+service Users {
+    rpc GetUser (GetUserRequest) returns (GetUserResponse) {
+        option (google.api.http) = {get: "/v1/users"};
+    };
+    rpc GetUserCreditLimit (GetUserCreditLimitRequest) returns (GetUserCreditLimitResponse);
+}
+
+message GetUserRequest {
+    int64 id = 1;
+}
+message GetUserResponse {
+    int64 id = 1;
+    string firstname = 2;
+    string lastname = 3;
+    int64 credit_limit = 4;
+}
+
+message GetUserCreditLimitRequest {
+    int64 id = 1;
+}
+message GetUserCreditLimitResponse {
+    int64 credit_limit = 1;
+}

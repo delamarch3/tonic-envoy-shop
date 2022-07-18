@@ -1,0 +1,38 @@
+services:
+  users-database:
+    build: ./database/users
+    environment:
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=users
+    ports:
+      - 5000:5432
+  orders-database:
+    build: ./database/orders
+    environment:
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=orders
+    ports:
+      - 5001:5432
+
+  envoy:
+    build: ./envoy
+    ports:
+      - 9901:9901
+      - 50000:50000
+      - 50001:50001
+
+  users:
+    build:
+      context: ./services/users
+      dockerfile: dev.Dockerfile
+    environment:
+      - DATABASE_URI=postgres://postgres:postgres@users-database:5432/users
+  orders:
+    build:
+      context: ./services/orders
+      dockerfile: dev.Dockerfile
+    environment:
+      - DATABASE_URI=postgres://postgres:postgres@orders-database:5432/orders
+      - USER_SERVICE_ADDR=http://users:50000
