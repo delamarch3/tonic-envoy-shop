@@ -22,6 +22,8 @@ services:
       - 9901:9901
       - 50000:50000
       - 50001:50001
+  auth:
+    build: ./services/auth
 
   users:
     build:
