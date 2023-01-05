@@ -1,7 +1,7 @@
 ### Environment variables
 
 ```shell
-export DATABASE_URI=postgres://postgres:postgres@localhost:5000/users
+export DATABASE_URI=postgres://postgres:postgres@localhost:5002/users
 ```
 
 ### grpcurl

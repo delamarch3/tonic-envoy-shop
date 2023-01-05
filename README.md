@@ -159,6 +159,7 @@
     upstream connect error or disconnect/reset before headers. reset reason: remote reset
     ```
 
-- **Sample Call:**
-
-  `curl -v -d '{"userid":1, "product":"Fridge", "total":500}' -H "Content-Type: application/json" -X POST 'localhost:50000/v1/orders'`
+## Sample Call
+```
+curl -v -d '{"userid":1, "product":"Fridge", "total":500}' -H "Content-Type: application/json" -X POST 'localhost:50000/v1/orders' -H 'token: abc'
+```
