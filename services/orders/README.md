@@ -1,7 +1,7 @@
 ### Environment variables
 
 ```shell
-export DATABASE_URI=postgres://postgres:postgres@localhost:5001/orders
+export DATABASE_URI=postgres://postgres:postgres@localhost:5003/orders
 export USER_SERVICE_ADDR=http://0.0.0.0:50000
 ```
 

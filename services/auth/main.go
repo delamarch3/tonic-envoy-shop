@@ -13,7 +13,7 @@ func main() {
 	s := grpc.NewServer()
 	auth.RegisterAuthorizationServer(s, &server.Server{})
 
-	lis, err := net.Listen("tcp", ":5000")
+	lis, err := net.Listen("tcp", ":5005")
 	if err != nil {
 		return
 	}
